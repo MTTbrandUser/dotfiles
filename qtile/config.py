@@ -117,7 +117,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 layout_theme = {"border_width": 2,
-                "margin": 8,
+                "margin": 20,
                 "border_focus": "88c0d0",
                 "border_normal": "3b4252"
                 }
@@ -348,9 +348,9 @@ def init_widgets_screen2():
     return widgets_screen2                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,8,0,6], size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, margin=[4,8,0,6], size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,8,0,6], size=20))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,2,0,6], size=23)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, margin=[4,2,0,6], size=23)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,2,0,6], size=23))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
