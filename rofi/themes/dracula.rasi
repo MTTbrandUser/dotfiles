@@ -1,0 +1,82 @@
+window {
+  location:   north;
+  anchor:   north;
+  /* border-radius: 5; */
+  /* y-offset: 5px; */
+}
+* {
+  background-color: #2e3440;
+  spacing: 0;
+  lines: 10; /*Number of entries to display*/
+  width: 600px;
+}
+
+mainbox {
+  border: 0 3px 3px 3px;
+  border-color: #434c5e;
+}
+inputbar {
+  border: 2px;
+  border-radius: 5;
+  margin: 8px 8px 0 8px;
+  border-color: #434c5e;
+  children: [ icon-key , entry ];
+}
+
+/* prompt {
+  padding: 8px;
+  text-color: #e5e9f0;
+  background-color: #3b4252;
+  font: "Iosevka Bold 11";
+} */
+
+icon-key {
+  expand: false;
+  filename: "gnome-searchtool";
+  size: 16;
+  padding: 8px;
+  vertical-align: 0.5;
+}
+
+textbox {
+  background-color: #3b4252;
+  border: 0 0 1px 0;
+  border-color: #3b4252;
+  padding: 8px 16px;
+}
+
+entry {
+  padding: 8px;
+  background-color: #3b4252;
+  text-color: #e5e9f0;
+  font: "Manrope Bold 11";
+}
+
+listview {
+  cycle: false;
+  margin: 8px;
+  /* padding: 8px; */
+  scrollbar: true;
+  border-color: #434c5e;
+  border: 2px;
+}
+scrollbar {
+  width: 8px;
+  border: 0;
+  handle-color: #5e81ac;
+  handle-width: 5px;
+  padding: 0 3px 3px 3px;
+}
+element {
+  border: 0 0 1px 0;
+  padding: 14px;
+  text-color:#e5e9f0;
+  font: "Manrope 9";
+  background-color: #2e3440;
+  border-color: #434c5e;
+}
+
+element selected {
+  background-color: #3b4252;
+  text-color: #e5e9f0;
+}

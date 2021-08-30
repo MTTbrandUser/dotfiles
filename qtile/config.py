@@ -21,8 +21,8 @@ keys = [
              ),
          Key([mod, "shift"], "r",
              # lazy.spawn("dmenu_run -p 'Run: '"),
-             lazy.spawn("rofi -show drun -config ~/.config/rofi/themes/slate.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
-             # lazy.spawn("rofi -combi-modi window,drun -show combi -modi combi -config ~/.config/rofi/themes/slate.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
+             lazy.spawn("rofi -show drun -config ~/.config/rofi/themes/dracula.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
+             # lazy.spawn("rofi -show drun -config ~/.config/rofi/themes/slate.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
              desc='Run Launcher'
              ),
          Key([mod], "Tab",
@@ -41,16 +41,21 @@ keys = [
              lazy.spawn("xfce4-power-manager"),
              desc='Kill active window'
              ),
-         Key([mod, "shift"], "x",
+         Key([mod, "shift"], "o",
              lazy.shutdown(),
              desc='Shutdown Qtile'
              ),
+         Key([mod, "shift"], "x",
+             # lazy.spawn("dmenu_run -p 'Run: '"),
+             lazy.spawn("rofi -show power-menu -modi power-menu:rofi-power-menu"),
+             desc='power manager'
+             ),
          Key([mod, "shift"], "Return",
-             lazy.spawn("thunar"),
+             lazy.spawn("nautilus"),
              desc='file manager'
              ),
          Key([mod, "shift"], "w",
-             lazy.spawn("qutebrowser"),
+             lazy.spawn("firefox"),
              desc='web browser'
              ),
          ### Window controls
@@ -261,16 +266,16 @@ def init_widgets_list():
                        fontsize = 45
                        ),
                 widget.Spacer(),
-              # widget.Systray(
-              #          background = colors[0],
-              #          padding = 5
-              #          ),
-              # widget.Sep(
-              #          linewidth = 0,
-              #          padding = 6,
-              #          foreground = colors[0],
-              #          background = colors[0]
-              #          ),
+               widget.Systray(
+                       background = colors[0],
+                       padding = 5
+                       ),
+              widget.Sep(
+                        linewidth = 0,
+                        padding = 6,
+                        foreground = colors[0],
+                        background = colors[0]
+                        ),
               widget.TextBox(
                        text = '',
                        background = colors[0],
@@ -297,7 +302,7 @@ def init_widgets_list():
                     background=colors[4]
                 ),
                 widget.TextBox(
-                    text=' =',
+                    text=' =',
                     font="FontAwesome",
                     fontsize='18',
                     padding=0,
