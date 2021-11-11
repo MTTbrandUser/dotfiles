@@ -21,7 +21,7 @@ keys = [
              ),
          Key([mod, "shift"], "r",
              # lazy.spawn("dmenu_run -p 'Run: '"),
-             lazy.spawn("rofi -show drun -config ~/.config/rofi/themes/dracula.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
+             lazy.spawn("rofi -show drun -show-icons -display-drun \"Run: \" -drun-display-format \"{name}\""),
              # lazy.spawn("rofi -show drun -config ~/.config/rofi/themes/slate.rasi -display-drun \"Run: \" -drun-display-format \"{name}\""),
              desc='Run Launcher'
              ),
@@ -29,7 +29,7 @@ keys = [
              lazy.next_layout(),
              desc='Toggle through layouts'
              ),
-         Key([mod, "shift"], "q",
+         Key([mod, "shift"], "c",
              lazy.window.kill(),
              desc='Kill active window'
              ),
@@ -37,7 +37,7 @@ keys = [
              lazy.restart(),
              desc='Restart Qtile'
              ),
-         Key([mod, "shift"], "c",
+         Key([mod, "shift"], "p",
              lazy.spawn("xfce4-power-manager"),
              desc='Kill active window'
              ),
@@ -51,7 +51,7 @@ keys = [
              desc='power manager'
              ),
          Key([mod, "shift"], "Return",
-             lazy.spawn("nautilus"),
+             lazy.spawn("thunar"),
              desc='file manager'
              ),
          Key([mod, "shift"], "w",
@@ -122,7 +122,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 layout_theme = {"border_width": 2,
-                "margin": 20,
+                "margin": 10,
                 "border_focus": "88c0d0",
                 "border_normal": "3b4252"
                 }
@@ -144,21 +144,21 @@ layouts = [
     layout.Floating(**layout_theme)
 ]
 
-colors = [["#2e3440", "#2e3440"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#4c566a", "#4c566a"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
+colors = [["#141d22", "#141d22"], # panel background
+          ["#2f2e33", "#2f2e33"], # background for current screen tab
+          ["#f9e7fb", "#f9e7fb"], # font color for group names
+          ["#2f2e33", "#2f2e33"], # border line color for current tab
+          ["#29b1a0", "#29b1a0"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#29b1a0", "#29b1a0"], # color for the 'even widgets'
           ["#e1acff", "#e1acff"], # window name
-          ["#88c0d0", "#88c0d0"]] # backbround for inactive screens
+          ["#fa3c66", "#fa3c66"]] # backbround for inactive screens
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 ##### DEFAULT WIDGET SETTINGS #####
 widget_defaults = dict(
-    font="Roboto Bold",
-    fontsize = 12,
+    font="Isoveka Bold",
+    fontsize = 14,
     padding = 2,
     background=colors[0]
 )
@@ -178,26 +178,21 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[4]
                        ),
-              widget.GroupBox(
-                       font = "Roboto Bold",
-                       fontsize = 13,
-                       margin_y = 3,
-                       margin_x = 0,
-                       padding_y = 5,
-                       padding_x = 3,
-                       borderwidth = 3,
-                       active = colors[7],
-                       inactive = colors[2],
-                       rounded = False,
-                       highlight_color = colors[4],
-                       highlight_method = "line",
-                       this_current_screen_border = colors[7],
-                       this_screen_border = colors [4],
-                       other_current_screen_border = colors[6],
-                       other_screen_border = colors[4],
-                       foreground = colors[2],
-                       background = colors[4]
-                       ),
+                widget.TextBox(
+                    text='  ',
+                    font="Isoveka",
+                    fontsize='14',
+                    padding=0,
+                    background=colors[4],
+                    foreground=colors[2],
+                ),
+                widget.Clock(
+                    font="Isoveka bold",
+                    foreground=colors[2],
+                    background=colors[4],
+                    fontsize=14,
+                    format = "%A, %B %d - %H:%M "
+                ),
               widget.Prompt(
                        prompt = prompt,
                        font = "Ubuntu Mono",
@@ -206,7 +201,7 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.TextBox(
-                       text = '',
+                       text = '',
                        background = colors[0],
                        foreground = colors[4],
                        padding = 0,
@@ -227,7 +222,7 @@ def init_widgets_list():
                        fontsize = 45
                        ),
                 widget.TextBox(
-                    text='',
+                    text='',
                     fontsize='34',
                     padding=0,
                     background=colors[4],
@@ -238,31 +233,36 @@ def init_widgets_list():
                     padding=6,
                     background=colors[4]
                 ),
-                widget.TextBox(
-                    text='  ',
-                    font="FontAwesome",
-                    fontsize='14',
-                    padding=0,
-                    background=colors[4],
-                    foreground=colors[2],
-                ),
-                widget.Clock(
-                    font="Roboto bold",
-                    foreground=colors[2],
-                    background=colors[4],
-                    fontsize=14,
-                    format = "%A, %B %d - %H:%M "
-                ),
+              widget.GroupBox(
+                       font = "Isoveka Bold",
+                       fontsize = 13,
+                       margin_y = 3,
+                       margin_x = 0,
+                       padding_y = 5,
+                       padding_x = 3,
+                       borderwidth = 3,
+                       active = colors[7],
+                       inactive = colors[2],
+                       rounded = False,
+                       highlight_color = colors[4],
+                       highlight_method = "line",
+                       this_current_screen_border = colors[7],
+                       this_screen_border = colors [4],
+                       other_current_screen_border = colors[6],
+                       other_screen_border = colors[4],
+                       foreground = colors[2],
+                       background = colors[4]
+                       ),
                 widget.Sep(
                     linewidth=0,
                     padding=6,
                     background=colors[4]
                 ),
               widget.TextBox(
-                       text = '',
+                       text = '',
                        background = colors[4],
                        foreground = colors[0],
-                       padding = 0,
+                       padding = -1,
                        fontsize = 45
                        ),
                 widget.Spacer(),
@@ -277,14 +277,14 @@ def init_widgets_list():
                         background = colors[0]
                         ),
               widget.TextBox(
-                       text = '',
+                       text = '',
                        background = colors[0],
                        foreground = colors[4],
-                       padding = 0,
+                       padding = -1,
                        fontsize = 45
                        ),
               widget.TextBox(
-                       text = " 🖬",
+                       text = " ",
                        foreground = colors[2],
                        background = colors[4],
                        padding = 0,
@@ -303,8 +303,8 @@ def init_widgets_list():
                 ),
                 widget.TextBox(
                     text=' =',
-                    font="FontAwesome",
-                    fontsize='18',
+                    font="Isoveka",
+                    fontsize='14',
                     padding=0,
                     background=colors[4],
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn("pavucontrol")},
@@ -313,7 +313,7 @@ def init_widgets_list():
                 widget.Volume(
                     background=colors[4],
                     foreground="#ffffff",
-                    font="Roboto Bold",
+                    font="Isoveka Bold",
                     fontsize=14,
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn("pavucontrol")},
                 ),
@@ -353,9 +353,9 @@ def init_widgets_screen2():
     return widgets_screen2                 # Monitor 2 will display all widgets in widgets_list
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,2,0,6], size=23)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, margin=[4,2,0,6], size=23)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, margin=[4,2,0,6], size=23))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, margin=[5,20,1,20], size=23)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.8, margin=[5,20,1,20], size=23)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, margin=[5,20,1,20], size=23))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
