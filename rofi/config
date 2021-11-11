@@ -1,4 +1,4 @@
 
 
 
-rofi.theme: /home/adrian/.config/rofi/themes/dracula.rasi
+rofi.theme: ~/.config/rofi/themes/dracula.rasi
