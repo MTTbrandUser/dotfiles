@@ -51,11 +51,12 @@ keys = [
              desc='power manager'
              ),
          Key([mod, "shift"], "Return",
-             lazy.spawn("thunar"),
+             # lazy.spawn("alacritty -e ranger"),
+             lazy.spawn("dolphin"),
              desc='file manager'
              ),
          Key([mod, "shift"], "w",
-             lazy.spawn("firefox"),
+             lazy.spawn("qutebrowser"),
              desc='web browser'
              ),
          ### Window controls
@@ -123,8 +124,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 layout_theme = {"border_width": 2,
                 "margin": 10,
-                "border_focus": "88c0d0",
-                "border_normal": "3b4252"
+                "border_focus": "689d6a",
+                "border_normal": "282828"
                 }
 
 layouts = [
@@ -144,14 +145,14 @@ layouts = [
     layout.Floating(**layout_theme)
 ]
 
-colors = [["#141d22", "#141d22"], # panel background
-          ["#2f2e33", "#2f2e33"], # background for current screen tab
-          ["#f9e7fb", "#f9e7fb"], # font color for group names
-          ["#2f2e33", "#2f2e33"], # border line color for current tab
-          ["#29b1a0", "#29b1a0"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#29b1a0", "#29b1a0"], # color for the 'even widgets'
-          ["#e1acff", "#e1acff"], # window name
-          ["#fa3c66", "#fa3c66"]] # backbround for inactive screens
+colors = [["#282828", "#282828"], # panel background
+          ["#1d2021", "#1d2021"], # background for current screen tab
+          ["#ebdbb2", "#ebdbb2"], # font color for group names
+          ["#689d6a", "#689d6a"], # border line color for current tab
+          ["#689d6a", "#689d6a"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#689d6a", "#689d6a"], # color for the 'even widgets'
+          ["#ebdbb2", "#ebdbb2"], # window name
+          ["#cc241d", "#cc241d"]] # backbround for inactive screens
 
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -312,7 +313,7 @@ def init_widgets_list():
                 ),
                 widget.Volume(
                     background=colors[4],
-                    foreground="#ffffff",
+                    foreground="#ebdbb2",
                     font="Isoveka Bold",
                     fontsize=14,
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn("pavucontrol")},

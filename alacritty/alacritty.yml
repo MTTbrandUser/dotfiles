@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 15
+    y: 15
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -114,12 +114,12 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-    family: Iosevka
+    # family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -134,12 +134,12 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-    family: Iosevka
+    # family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -154,12 +154,12 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-    family: Iosevka
+    # family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -174,17 +174,17 @@ font:
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
-    # family: JetBrains Mono
+    family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: Iosevka
+    # family: Iosevka
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 12
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -252,30 +252,30 @@ colors:
 colors:
   # Default colors
   primary:
-    background: '0x141d22'
-    foreground: '0xf9e7fb'
+    background: '0x282828'
+    foreground: '0xebdbb2'
 
   # Normal colors
   normal:
-    black:   '0x2f2e33'
-    red:     '0xfa3c66'
-    green:   '0x80dc62'
-    yellow:  '0xefb63e'
-    blue:    '0x6e98ee'
-    magenta: '0xbd64ca'
-    cyan:    '0x29b1a0'
-    white:   '0xc3c5c6'
+    black:   '0x1d2021'
+    red:     '0xcc241d'
+    green:   '0x98971a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xb16286'
+    cyan:    '0x689d6a'
+    white:   '0xa89984'
 
   # Bright colors
   bright:
-    black:   '0x585a5d'
-    red:     '0xe2697e'
-    green:   '0x98db7d'
-    yellow:  '0xf1f072'
-    blue:    '0x76b0e1'
-    magenta: '0xd088e5'
-    cyan:    '0x6cd3c5'
-    white:   '0xe9f3ec' 
+    black:   '0x928374'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xebdbb2' 
 
 # Visual Bell
 #
@@ -308,7 +308,8 @@ colors:
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 # background_opacity: 1.0
-background_opacity: 0.80
+# background_opacity: 0.80
+background_opacity: 0.50
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

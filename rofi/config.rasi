@@ -2,7 +2,7 @@ configuration {
 	modi:				"drun";
 	font:				"Iosevka 10";
 	show-icons:                     true;
-	icon-theme: 			"Sea";
+	icon-theme: 			"Gruvbox Material Dark";
 	display-drun: 			"";
 	drun-display-format:            "{name}";
 	sidebar-mode: 			false;
@@ -11,10 +11,10 @@ configuration {
 @theme "/dev/null"
 
 * {
-	bg:				#141d22;
-	fg:				#f9e7fb;
-	accent:				#29b1a0;
-	button:				#29b1a0;
+	bg:				#282828;
+	fg:				#ebdbb2;
+	accent:				#8ec07c;
+	button:				#8ec07c;
 
 	background-color:		@bg;
 	text-color:			@fg;
